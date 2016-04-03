@@ -2,12 +2,13 @@ var t = true;
 
 function toggleRedirect() {
 
-
-    if (PB.blockedSites) {
+/*
+    if () {
         PB.addBlockedSite();
     } else {
         PB.removeBlockedSite();
     }
+    */
 };
 
 

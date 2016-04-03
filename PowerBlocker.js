@@ -19,6 +19,7 @@ var SM = (function () {
 var PB = (function (SM) {
 
     var my = {};
+    var visits = 0;
 
     my.blockTheseSites = {
 
@@ -56,29 +57,28 @@ var PB = (function (SM) {
         delete my.blockedSites[site];
         SM.put("blocklist", JSON.stringify(my.blockedSites));
     }
+    
+     if (!SM.get("visits")) {
+        visits = 1;
+        SM.put("visits", visits);
+
+        //console.log("By the way, this is your first time here.");
+
+    } else {
+
+        visits += 1;
+        SM.put("visits", visits);
+
+        //console.log("I note, you have been here " + visits + " times.");
+    }
+
     return my;
+    return visits;
         
 }(SM));
 
 //figure out how to store this w/ cookies
-function VisitCounter() {
 
-    var visits = GetCookie("counter");
-
-    if (!visits) {
-        visits = 1;
-
-        document.write("By the way, this is your first time here.");
-
-    } else {
-
-        visits = parseInt(visits) + 1;
-
-        document.write("I note, you have been here " + visits + " times.");
-    }
-
-    setCookie("counter", visits, expdate);
-}
 
 function initialize() {
 
