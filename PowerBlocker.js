@@ -23,7 +23,7 @@ var PB = (function (SM) {
     my.blockTheseSites = {
 
 
-        "https://ps01.bergen.org/public/*": "Powerschool",
+        "https://ps01.bergen.org/public/*": "Powerschool"
 
 
     }
@@ -44,7 +44,20 @@ var PB = (function (SM) {
     my.getBlockedSites = function () {
         return JSON.parse(SM.get("blocklist"));
     }
+    
+    my.addBlockedSite = function (site) {
+        my.blockedSites = JSON.parse(SM.get("blocklist"));
+        my.blockedSites[site] = "Powerschool";
+        SM.put("blocklist", JSON.stringify(my.blockedSites));
+    }
+
+    my.removeBlockedSite = function (site) {
+        my.blockedSites = JSON.parse(SM.get("blocklist"));
+        delete my.blockedSites[site];
+        SM.put("blocklist", JSON.stringify(my.blockedSites));
+    }
     return my;
+        
 }(SM));
 
 //figure out how to store this w/ cookies
@@ -93,4 +106,6 @@ function initialize() {
         }
     });
 }
+
+
 window.addEventListener("load", initialize);

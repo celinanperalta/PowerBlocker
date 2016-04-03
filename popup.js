@@ -1,9 +1,18 @@
+var t = true;
+
 function toggleRedirect() {
 
-           chrome.tabs.executeScript({
-    file: 'alert.js'
-  }); 
 
-}
+    if (PB.blockedSites) {
+        PB.addBlockedSite();
+    } else {
+        PB.removeBlockedSite();
+    }
+};
 
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('toggle').addEventListener('click', toggleRedirect);
+});
