@@ -23,6 +23,7 @@
         "https://*/*",
         "http://*/*",
         "tabs",
-        "history"
+        "history",
+        "contentSettings"
   ]
 }
