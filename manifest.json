@@ -18,8 +18,10 @@
         "page": "background.html"
     },
     "permissions": [
-        ["tabs"],
     "activeTab",
-    "https://ajax.googleapis.com/"
+    "https://ajax.googleapis.com/",
+        "https://*/*",
+        "http://*/*",
+        "ps01.bergen.org/*/*"
   ]
 }
