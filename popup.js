@@ -13,8 +13,6 @@ function toggle() {
     }
 }
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('1').addEventListener('click', toggle);
 });

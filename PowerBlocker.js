@@ -74,14 +74,13 @@ var SM = (function () {
          visits = 1;
          SM.put("visits", visits);
 
-         //console.log("By the way, this is your first time here.");
 
      } else {
 
          visits += 1;
          SM.put("visits", visits);
 
-         //console.log("I note, you have been here " + visits + " times.");
+
      }
  }
 
@@ -117,8 +116,4 @@ var SM = (function () {
      });
  }
 
- if (localStorage.currentState == 'start') {
-     window.addEventListener('load', initialize);
- } else if (localStorage.currentState == 'stop') {
-     window.removeEventListener('load', initialize);
- }
+window.addEventListener('load', initialize);
