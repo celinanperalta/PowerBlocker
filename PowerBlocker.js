@@ -1,4 +1,4 @@
- var SM = (function () {
+var SM = (function () {
 
      var my = {};
 
@@ -51,7 +51,7 @@
          my.blockedSites = JSON.parse(SM.get("blocklist"));
          my.blockedSites[site] = "Powerschool";
          SM.put("blocklist", JSON.stringify(my.blockedSites));
-     }
+     };
 
      my.removeBlockedSite = function (site) {
          my.blockedSites = JSON.parse(SM.get("blocklist"));
