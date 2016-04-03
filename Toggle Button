@@ -1,0 +1,17 @@
+<script>
+function toggle(button)
+{
+  if(document.getElementById("1").value=="OFF"){
+   document.getElementById("1").value="ON";}
+
+  else if(document.getElementById("1").value=="ON"){
+   document.getElementById("1").value="OFF";}
+}
+</script>
+
+
+<body>
+<form action="">
+<input type="button" id="1" value="ON" style="color:blue"
+       onclick="toggle(this);">
+</form></body></html> 
