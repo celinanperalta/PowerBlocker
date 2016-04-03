@@ -7,13 +7,14 @@ try {
     die('Something went wrong! '.$e->getMessage());
 }
 
+
 foreach ($student->sections as $section) {
-    echo $section->name."\n";
+
+ echo $section->name.'<br>';
+     
 }
-
-$term = $student->sections[0]->finalGrades["S1"];
-
         ?>
+
     <html>
 
     <head>
@@ -23,12 +24,6 @@ $term = $student->sections[0]->finalGrades["S1"];
 
     <body>
 
-        <?php 
-
-        
-        echo $term;
-
-        ?>
 
     </body>
 
