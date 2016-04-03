@@ -34,11 +34,11 @@ var PB = (function (SM) {
     }
 
     my.setWatchThisInstead = function (value) {
-        return 'redirect.html';
+        return 'stressrelief.html';
     }
 
     my.getWatchThisInstead = function () {
-        return 'redirect.html';
+        return 'stressrelief.html';
     }
 
     my.getBlockedSites = function () {
@@ -47,24 +47,24 @@ var PB = (function (SM) {
     return my;
 }(SM));
 
+//figure out how to store this w/ cookies
+function VisitCounter() {
 
-function VisitCounter(){
+    var visits = GetCookie("counter");
 
-var visits = GetCookie("counter");
+    if (!visits) {
+        visits = 1;
 
-if (!visits) { visits = 1;
+        document.write("By the way, this is your first time here.");
 
-document.write("By the way, this is your first time here.");
+    } else {
 
-}
+        visits = parseInt(visits) + 1;
 
-else {
+        document.write("I note, you have been here " + visits + " times.");
+    }
 
-visits = parseInt(visits) + 1;
-
-document.write("I note, you have been here " + visits + " times.");}
-
-setCookie("counter", visits,expdate);
+    setCookie("counter", visits, expdate);
 }
 
 function initialize() {
