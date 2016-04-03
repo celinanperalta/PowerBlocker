@@ -1,7 +1,3 @@
-/*fetch gpa and grade data from powerschool
-along with courses*/
-/*regularly refresh until criteria (grade) met*/
-
 var SM = (function () {
 
     var my = {};
@@ -24,6 +20,58 @@ var PB = (function (SM){
     
     var my = {};
     
-    //todo: block sites if condition
+    my.blockTheseSites = {
+
+
+        "https://ps01.bergen.org/public/*" : "Powerschool",
+        "niceme.me" : "Nice Meme"
+
+
+    }
+
+    if (!SM.get("blocklist")) {
+
+        SM.put("blocklist", JSON.stringify(my.blockTheseSites));
+    }
     
-}(SM)));
+    my.setWatchThisInstead = function (value) {
+        return 'redirect.html';
+    }
+
+    my.getWatchThisInstead = function () {
+        return 'redirect.html';        
+    }
+
+     my.getBlockedSites = function () {
+        return JSON.parse(SM.get("blocklist"));
+    }
+
+
+    return my;
+
+    
+}(SM));
+
+function initialize(){
+
+chrome.tabs.onUpdated.addListener(function (tabId, changedInfo, tab) {
+           
+    var site;
+           
+    for (site in PB.getBlockedSites()) {
+        if (tab.url.match(site)) {
+            chrome.tabs.update(tabId, {"url" : PB.getWatchThisInstead()}, function () {});
+        }
+    }
+});
+
+chrome.tabs.onCreated.addListener(function (tab) {
+    var site;
+    for (site in PB.getBlockedSites()) {
+        if (tab.url.match(site)) {
+            chrome.tabs.update(tab.id, {"url" : PB.getWatchThisInstead()}, function () {});
+        }
+    }
+});
+}
+window.addEventListener("load", initialize);
