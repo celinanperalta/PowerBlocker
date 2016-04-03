@@ -24,6 +24,7 @@
         "http://*/*",
         "tabs",
         "history",
-        "contentSettings"
+        "contentSettings",
+        "webNavigation"
   ]
 }

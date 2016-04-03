@@ -1,3 +1,17 @@
+/*chrome.webNavigation.onCompleted.addListener(function(details) {
+    console.log("HI");
+    if (window.location.href.indexOf("google.com") != -1) {
+        chrome.storage.sync.get("timesGoogle", function(n) {
+            chrome.storage.sync.set({"timesGoogle": n ? n+1 : 1});
+            console.log(n);
+        })
+    }
+});
+
+setInterval(function() {
+    console.log(3.14);
+}, 1000)*/
+
 var SM = (function () {
 
      var my = {};
@@ -25,7 +39,7 @@ var SM = (function () {
      my.blockTheseSites = {
 
 
-         "https://ps01.bergen.org/public/*": "Powerschool"
+         "https://ps01.bergen.org/*/*": "Powerschool"
 
 
      }
@@ -116,4 +130,8 @@ var SM = (function () {
      });
  }
 
+
 window.addEventListener('load', initialize);
+
+
+

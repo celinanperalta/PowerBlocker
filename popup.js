@@ -13,6 +13,10 @@ function toggle() {
     }
 }
 
+function increment(){
+    localStorage.visits += 1;
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('1').addEventListener('click', toggle);
+    document.getElementById('1').addEventListener('click', increment);
 });
