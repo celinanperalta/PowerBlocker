@@ -24,6 +24,6 @@ var PB = (function (SM){
     
     var my = {};
     
-    
+    //todo: block sites if condition
     
 }(SM)));
